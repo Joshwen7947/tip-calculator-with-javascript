@@ -1,20 +1,15 @@
-// console.log('working');
-const billAmount = document.getElementById('billAmount').value;
-const buttons = document.querySelectorAll('button');
 const custom = document.getElementById('custom');
-const resetButton = document.getElementById('reset');
-const enterButton = document.getElementById('enter');
-//
-resetButton.addEventListener('click', () => {
-	console.log('reset clicked');
-});
-custom.addEventListener('click', () => {
-	console.log('custom tip clicked');
-});
 ////////////////////////////////////////////////////////////////////////
+// RESET BUTTON
+const resetButton = document.querySelector('#reset');
+function reload() {
+	reload = location.reload();
+}
+resetButton.addEventListener('click', reload, false);
+////////////////////////////////////////////////////////////////////////
+//CALCULATION FUNCTION
 let value = document.querySelector('#billAmount').value;
 let tipTotal;
-
 function getValue() {
 	value = document.querySelector('#billAmount').value;
 	console.log(`The bill is $` + value);
@@ -50,16 +45,24 @@ function getValue() {
 		console.log(`The total tip is: $` + tipTotal);
 	});
 }
-
 function getPeople() {
 	const people = document.querySelector('#numberOfPeopleInput').value;
 	let total = tipTotal / people;
+	let grand = value + tipTotal;
+
+	if (people === 1) {
+		document.getElementById('currentFinalTotal').innerHTML = `$` + grand;
+	} else {
+		document.getElementById('currentFinalTotal').innerHTML =
+			`$` + grand / people;
+	}
 	console.log(`The bill will be split ` + people + ` ways`);
 	console.log(`The tip is $` + total + ` each`);
-	let grand = value + tipTotal;
 	console.log(`The grand total is $` + grand);
 	document.getElementById('currentSubTotal').innerHTML = `$` + total;
-	document.getElementById('currentFinalTotal').innerHTML = `$` + grand / 2;
 }
-let tipAmountPerPerson = document.getElementById('currentSubTotal');
-let finalTotalPerPerson = document.getElementById('currentFinalTotal');
+////////////////////////////////////////////////////////////////////////
+// CUSTOM TIP
+custom.addEventListener('click', () => {
+	console.log('custom tip clicked');
+});
