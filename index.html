@@ -31,8 +31,12 @@
 			</div>
 			<div class="numberOfPeopleInput">
 				<h4>Number of People:</h4>
-				<input id="numberOfPeopleInput" type="number" placeholder="0" />
-				<button id="enter">Enter</button>
+				<input
+					id="numberOfPeopleInput"
+					type="number"
+					placeholder="0"
+					onblur="getPeople()"
+				/>
 			</div>
 			<div id="calculator">
 				<div class="subTotal">
