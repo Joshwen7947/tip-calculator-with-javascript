@@ -45,10 +45,13 @@ function getValue() {
 		console.log(`The total tip is: $` + tipTotal);
 	});
 }
+
 function getPeople() {
 	const people = document.querySelector('#numberOfPeopleInput').value;
-	let total = tipTotal / people;
-	let grand = value + tipTotal;
+	let total = Math.round((tipTotal / people + Number.EPSILON) * 100) / 100;
+	let grand =
+		Math.round((parseInt(value) + parseInt(tipTotal) + Number.EPSILON) * 100) /
+		100;
 	if (people === 1) {
 		document.getElementById('currentFinalTotal').innerHTML = `$` + grand;
 	} else {
