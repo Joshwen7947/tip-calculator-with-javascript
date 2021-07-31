@@ -49,7 +49,6 @@ function getPeople() {
 	const people = document.querySelector('#numberOfPeopleInput').value;
 	let total = tipTotal / people;
 	let grand = value + tipTotal;
-
 	if (people === 1) {
 		document.getElementById('currentFinalTotal').innerHTML = `$` + grand;
 	} else {
@@ -59,7 +58,7 @@ function getPeople() {
 	console.log(`The bill will be split ` + people + ` ways`);
 	console.log(`The tip is $` + total + ` each`);
 	console.log(`The grand total is $` + grand);
-	document.getElementById('currentSubTotal').innerHTML = `$` + total;
+	document.getElementById('currentSubTotal').innerHTML = `$` + total; //Tip Amount per person
 }
 ////////////////////////////////////////////////////////////////////////
 // CUSTOM TIP
